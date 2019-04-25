@@ -32,16 +32,22 @@ export class LargestMatrixService {
       for ( let i = 0; i < chains.length - largest + 1; ++i ) {
         for ( const chain of chains[i] ) {
           let count = 1;
+          let leftBound = chain.index;
           for ( let o = i + 1; o < chains.length; ++o ) {
             const link = chains[o].find(
               c => c.length >= largest
-              && c.index <= chain.index
-              && c.index + c.length >= chain.index + largest
+              && c.index <= leftBound + chain.length - largest
+              && c.index + c.length >= leftBound + largest
             );
 
             if ( isUndefined(link) ) {
               break;
             }
+
+            if ( link.index > chain.index ) {
+              leftBound = link.index;
+            }
+
             count++;
           }
 
