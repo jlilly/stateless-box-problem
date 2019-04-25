@@ -24,7 +24,7 @@ export class LargestMatrixService {
 
     const chains = arr.map( this.analyseRow );
 
-    return 0;
+    return 1;
   }
 
   /** Sum up all the 1s.
