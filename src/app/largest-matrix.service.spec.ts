@@ -111,6 +111,70 @@ describe('LargestMatrixService', () => {
             [0, 1, 0],
             [1, 0, 1]],
       expectedResult: 1
+    }, {
+      description: 'Easy square',
+      arr: [[0, 0, 0],
+            [0, 1, 1],
+            [0, 1, 1]],
+      expectedResult: 2
+    }, {
+      description: 'Slightly more difficult square',
+      arr: [[1, 0, 1],
+            [0, 1, 1],
+            [1, 1, 1]],
+      expectedResult: 2
+    }, {
+      description: 'input001',
+      arr: [[1, 1, 1],
+            [1, 1, 0],
+            [1, 0, 1]],
+      expectedResult: 2
+    }, {
+      description: 'input002',
+      arr: [[0, 1, 1],
+            [1, 1, 0],
+            [1, 0, 1]],
+      expectedResult: 1
+    }, {
+      description: 'Canonical HR case',
+      arr: [[1, 1, 1, 1, 1],
+            [1, 1, 1, 0, 0],
+            [1, 1, 1, 0, 0],
+            [1, 1, 1, 0, 0],
+            [1, 1, 1, 1, 1]],
+      expectedResult: 3
+    }, {
+      description: 'Modified HR case',
+      arr: [[1, 1, 1, 1, 1],
+            [0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 0],
+            [1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1]],
+      expectedResult: 3
+    }, {
+      description: 'Whoa man',
+      arr: [[1, 0, 1, 0, 1],
+            [0, 1, 1, 1, 1],
+            [0, 0, 1, 1, 0],
+            [1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1]],
+      expectedResult: 2
+    }, {
+      description: 'Overhangs',
+      arr: [[0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 1],
+            [0, 1, 1, 1, 0],
+            [1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 3
+    }, {
+      description: 'No overlap',
+      arr: [[0, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 0]],
+      expectedResult: 1
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);
