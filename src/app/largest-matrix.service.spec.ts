@@ -54,6 +54,11 @@ describe('LargestMatrixService', () => {
       description: 'Double One Case',
       row: [1, 0, 1],
       expectedResult: [{index: 0, length: 1}, {index: 2, length: 1}]
+    }, {
+      description: 'Two at the end',
+      row: [0, 1, 1],
+      expectedResult: [{index: 1, length: 2}]
+    }, {
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = (service as any).analyseRow(testCase.row);
@@ -64,7 +69,7 @@ describe('LargestMatrixService', () => {
   });
 
   // TODO: this may become a large set of tests, move into own file?
-  describe('largestMatrix()', () => {
+  fdescribe('largestMatrix()', () => {
     [{
       description: 'Gracefully handles bad input: undefined',
       arr: undefined,
@@ -168,6 +173,14 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0]],
       expectedResult: 3
     }, {
+      description: 'Overhangs other way',
+      arr: [[0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 0],
+            [1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 3
+    }, {
       description: 'No overlap',
       arr: [[0, 1, 1, 1, 1],
             [0, 0, 0, 0, 0],
@@ -182,7 +195,7 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0]],
-      expectedResult: 1
+      expectedResult: 2
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);

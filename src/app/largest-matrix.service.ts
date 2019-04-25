@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { isNullOrUndefined, isNull } from 'util';
+import { isNullOrUndefined, isNull, isUndefined } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,35 @@ export class LargestMatrixService {
       return maxPossibleLength;
     }
 
-    const chains = arr.map( this.analyseRow );
+    const chainsMaster = arr.map( this.analyseRow );
+
+    for ( let largest = maxPossibleLength; largest > 1; --largest ) {
+      const chains = chainsMaster.map( row => {
+        return row.filter(c => c.length >= largest);
+      });
+
+      for ( let i = 0; i < chains.length - largest + 1; ++i ) {
+        for ( const chain of chains[i] ) {
+          let count = 1;
+          for ( let o = i + 1; o < chains.length; ++o ) {
+            const link = chains[o].find(
+              c => c.length >= largest
+              && c.index <= chain.index
+              && c.index + c.length >= chain.index + largest
+            );
+
+            if ( isUndefined(link) ) {
+              break;
+            }
+            count++;
+          }
+
+          if ( count === largest ) {
+            return largest;
+          }
+        }
+      }
+    }
 
     return 1;
   }
