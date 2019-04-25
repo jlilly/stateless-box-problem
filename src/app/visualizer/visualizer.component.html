@@ -1,10 +1,11 @@
-<form style="background: rgba(153, 153, 153, 0.5)">
-  <div *ngFor="let row of matrix" style="margin-bottom: 5px">
+<form class="checkbox-form">
+  <div *ngFor="let row of matrix"
+        class="checkbox-row">
     <mat-checkbox *ngFor="let col of row"
-                  style="margin: 5px;"
-                  color="primary"
                   [ngModelOptions]="{standalone: true}"
-                  [(ngModel)]="col.checked">
+                  [(ngModel)]="col.checked"
+                  style="margin: 5px;"
+                  color="primary">
     </mat-checkbox>
   </div>
 </form>
