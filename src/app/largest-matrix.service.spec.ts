@@ -203,6 +203,22 @@ describe('LargestMatrixService', () => {
             [1, 1, 1, 0, 0],
             [0, 0, 0, 0, 0]],
       expectedResult: 2
+    }, {
+      description: 'Not square, not fair',
+      arr: [[1, 1, 1, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1, 0, 1],
+            [0, 0, 0, 0, 1, 1, 1]],
+      expectedResult: 3
+    }, {
+      description: 'Not square, less fair',
+      arr: [[1, 1, 1, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 0, 1, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1],
+            [0, 0, 0, 0, 1, 0, 1]],
+      expectedResult: 3
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);
