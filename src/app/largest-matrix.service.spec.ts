@@ -212,6 +212,14 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0]],
       expectedResult: 2
     }, {
+      description: 'Sideways h, flipped',
+      arr: [[0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1],
+            [1, 1, 1, 0, 0],
+            [0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 2
+    }, {
       description: 'Not square, not fair',
       arr: [[1, 1, 1, 0, 0, 0, 0],
             [1, 1, 1, 1, 1, 1, 1],
@@ -237,6 +245,46 @@ describe('LargestMatrixService', () => {
             [1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 1, 1, 1, 1]],
      expectedResult: 7
+    }, {
+      description: '7/3',
+      arr: [[1, 0, 1, 0, 1, 1, 1],
+            [1, 1, 1, 1, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 0, 1, 0],
+            [1, 1, 1, 1, 0, 1, 1],
+            [1, 0, 1, 0, 1, 0, 1],
+            [1, 1, 1, 0, 1, 1, 1]],
+     expectedResult: 3
+    }, {
+      description: '7/4',
+      arr: [[1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 1, 1, 1, 1],
+            [1, 1, 1, 1, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1]],
+     expectedResult: 4
+    }, {
+      description: '7/5',
+      arr: [[1, 1, 1, 0, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [0, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1]],
+     expectedResult: 5
+    }, {
+      description: '7/6',
+      arr: [[1, 1, 1, 0, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1]],
+     expectedResult: 6
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);
