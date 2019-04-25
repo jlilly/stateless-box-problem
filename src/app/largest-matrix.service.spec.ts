@@ -175,6 +175,14 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0],
             [1, 1, 1, 1, 0]],
       expectedResult: 1
+    }, {
+      description: 'Twos trouble',
+      arr: [[1, 1, 0, 1, 1],
+            [0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 1
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);
