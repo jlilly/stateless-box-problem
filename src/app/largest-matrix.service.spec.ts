@@ -204,6 +204,14 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0]],
       expectedResult: 2
     }, {
+      description: 'h',
+      arr: [[0, 1, 1, 0, 0],
+            [0, 1, 1, 0, 0],
+            [0, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0]],
+      expectedResult: 2
+    }, {
       description: 'Sideways h',
       arr: [[0, 0, 0, 0, 0],
             [1, 1, 1, 1, 1],
@@ -212,11 +220,51 @@ describe('LargestMatrixService', () => {
             [0, 0, 0, 0, 0]],
       expectedResult: 2
     }, {
-      description: 'Sideways h, flipped',
+      description: 'Upside-down h',
+      arr: [[0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 1, 1, 0],
+            [0, 0, 1, 1, 0],
+            [0, 0, 1, 1, 0]],
+      expectedResult: 2
+    }, {
+      description: 'Laying down h',
+      arr: [[0, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1],
+            [1, 1, 1, 0, 0],
+            [1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 2
+    }, {
+      description: 'backwards-h',
+      arr: [[0, 0, 1, 1, 0],
+            [0, 0, 1, 1, 0],
+            [0, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0]],
+      expectedResult: 2
+    }, {
+      description: 'Sideways backwards-h',
       arr: [[0, 0, 0, 0, 0],
             [1, 1, 1, 1, 1],
             [1, 1, 1, 0, 0],
             [0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0]],
+      expectedResult: 2
+    }, {
+      description: 'Upside-down backwards-h',
+      arr: [[0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 1, 1, 0],
+            [0, 1, 1, 0, 0],
+            [0, 1, 1, 0, 0]],
+      expectedResult: 2
+    }, {
+      description: 'Laying down backwards-h',
+      arr: [[0, 0, 0, 0, 0],
+            [1, 1, 1, 0, 0],
+            [0, 0, 1, 1, 1],
+            [1, 1, 1, 1, 1],
             [0, 0, 0, 0, 0]],
       expectedResult: 2
     }, {
