@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { isNullOrUndefined } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,23 @@ export class LargestMatrixService {
   constructor() { }
 
   public largestMatrix(arr: number[][]): number {
-    const maxPossibleLength = this.sum(arr);
+    if ( isNullOrUndefined(arr) ||  arr.length === 0 ) {
+      return 0;
+    }
+    if ( arr[0].length === 0 ) {
+      return 0;
+    }
+
+    const sum = this.sum(arr);
+
+    if ( sum === 0 ) {
+      return 0;
+    } else if ( sum < 4 ) {
+      return 1;
+    }
+
+    const maxPossibleLength = Math.floor( Math.sqrt(sum) );
+
     return 0;
   }
 
