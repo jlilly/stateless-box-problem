@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualizerComponent implements OnInit {
 
+  public matrix = [
+    [{checked: true}, {checked: true}, {checked: true}, {checked: true}, {checked: true}],
+    [{checked: true}, {checked: true}, {checked: true}, {checked: false}, {checked: false}],
+    [{checked: true}, {checked: true}, {checked: true}, {checked: false}, {checked: false}],
+    [{checked: true}, {checked: true}, {checked: true}, {checked: false}, {checked: false}],
+    [{checked: true}, {checked: true}, {checked: true}, {checked: true}, {checked: true}],
+  ];
+
   constructor() { }
 
   ngOnInit() {

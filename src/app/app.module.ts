@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { MatCheckboxModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { VisualizerComponent } from './visualizer/visualizer.component';
@@ -12,7 +15,9 @@ import { VisualizerComponent } from './visualizer/visualizer.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

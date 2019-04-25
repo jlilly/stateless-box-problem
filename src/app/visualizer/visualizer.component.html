@@ -1,3 +1,10 @@
-<p>
-  visualizer works!
-</p>
+<form style="background: rgba(153, 153, 153, 0.5)">
+  <div *ngFor="let row of matrix" style="margin-bottom: 5px">
+    <mat-checkbox *ngFor="let col of row"
+                  style="margin: 5px;"
+                  color="primary"
+                  [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="col.checked">
+    </mat-checkbox>
+  </div>
+</form>
