@@ -16,15 +16,14 @@ export class LargestMatrixService {
       return 0;
     }
 
-    const sum = this.sum(arr);
+    const maxPossibleLength = Math.floor( Math.sqrt( this.sum(arr) ) );
 
-    if ( sum === 0 ) {
-      return 0;
-    } else if ( sum < 4 ) {
-      return 1;
+    if ( maxPossibleLength < 2 ) {
+      return maxPossibleLength;
     }
 
-    const maxPossibleLength = Math.floor( Math.sqrt(sum) );
+
+
 
     return 0;
   }
