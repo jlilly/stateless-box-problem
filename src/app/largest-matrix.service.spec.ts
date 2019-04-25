@@ -227,6 +227,16 @@ describe('LargestMatrixService', () => {
             [1, 1, 1, 0, 1, 1, 1],
             [0, 0, 0, 0, 1, 0, 1]],
       expectedResult: 3
+    }, {
+      description: 'Lucky 7',
+      arr: [[1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1]],
+     expectedResult: 7
     }].forEach( testCase => {
       it(testCase.description, () => {
         const result = service.largestMatrix(testCase.arr);
