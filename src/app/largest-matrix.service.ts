@@ -33,12 +33,11 @@ export class LargestMatrixService {
         for ( const chain of chains[i] ) {
           let count = 1;
           let leftBound = chain.index;
-          let width = chain.length;
 
           for ( let o = i + 1; o < chains.length; ++o ) {
             const link = chains[o].find(
               c => c.length >= largest
-              && c.index <= leftBound + width
+              && c.index <= leftBound + largest + 1
               && c.index + c.length >= leftBound + largest
             );
 
@@ -48,7 +47,6 @@ export class LargestMatrixService {
 
             if ( link.index > chain.index ) {
               leftBound = link.index;
-              width -= ( link.index - chain.index );
             }
 
             count++;

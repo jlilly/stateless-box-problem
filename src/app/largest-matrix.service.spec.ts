@@ -164,6 +164,14 @@ describe('LargestMatrixService', () => {
             [0, 1, 1, 1, 1]],
       expectedResult: 2
     }, {
+      description: 'Wazup man',
+      arr: [[1, 0, 1, 0, 1],
+            [0, 1, 1, 1, 1],
+            [0, 0, 1, 1, 0],
+            [1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1]],
+      expectedResult: 2
+    }, {
       description: 'Overhangs',
       arr: [[0, 0, 0, 0, 0],
             [0, 1, 1, 1, 1],
