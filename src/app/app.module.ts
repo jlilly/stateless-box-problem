@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { LargestMatrixService } from './largest-matrix.service';
 import { VisualizerComponent } from './visualizer/visualizer.component';
 
 @NgModule({
@@ -19,7 +20,7 @@ import { VisualizerComponent } from './visualizer/visualizer.component';
     FormsModule,
     MatCheckboxModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ LargestMatrixService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

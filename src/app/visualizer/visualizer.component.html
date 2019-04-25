@@ -1,5 +1,5 @@
 <form class="checkbox-form">
-  <div *ngFor="let row of matrix"
+  <div *ngFor="let row of matrix.ngModelData"
         class="checkbox-row">
     <mat-checkbox *ngFor="let col of row"
                   [ngModelOptions]="{standalone: true}"
@@ -9,3 +9,5 @@
     </mat-checkbox>
   </div>
 </form>
+<h1>The Biggest Square in There</h1>
+<h2>{{calcBoxEdge()}} x {{calcBoxEdge()}}</h2>
