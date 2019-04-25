@@ -35,6 +35,31 @@ describe('LargestMatrixService', () => {
     });
   });
 
+
+  [{
+    description: 'Zero Case',
+    row: [0, 0, 0],
+    expectedResult: []
+  }, {
+    description: 'One Case',
+    row: [1, 0, 0],
+    expectedResult: [{index: 0, length: 1}]
+  }, {
+    description: 'Two Case',
+    row: [1, 1, 0],
+    expectedResult: [{index: 0, length: 2}]
+  }, {
+    description: 'Double One Case',
+    row: [1, 0, 1],
+    expectedResult: [{index: 0, length: 1}, {index: 2, length: 1}]
+  }].forEach( testCase => {
+    it(testCase.description, () => {
+      const result = (service as any).analyseRow(testCase.row);
+
+      expect(result).toEqual(testCase.expectedResult);
+    });
+  });
+
   // TODO: this may become a large set of tests, move into own file?
   [{
     description: 'Gracefully handles bad input: undefined',
