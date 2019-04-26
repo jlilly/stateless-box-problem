@@ -1,4 +1,15 @@
 # BoxProblem
+Created in response to a development assementment.
+
+## Tests
+Hey look there are unit tests as well! OMG!
+
+## Found a bug?
+
+There is a super secert debug button that will export the current state of the grid to the console. The class is 'shh' and you can find this button grouped on the LH side.
+
+
+# Angular Boilerplate below
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
