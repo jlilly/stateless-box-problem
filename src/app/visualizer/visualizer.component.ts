@@ -34,4 +34,11 @@ export class VisualizerComponent implements OnInit {
     return this.calc.largestMatrix(this.matrix.arr);
   }
 
+  public addCol(): void {
+    this.matrix.length++;
+  }
+
+  public removeCol(): void {
+    this.matrix.length--;
+  }
 }

@@ -23,10 +23,13 @@
       </div>
     </form>
     <div class="vertical-buttons">
-      <button mat-mini-fab>
+      <button mat-mini-fab
+              (click)="addCol()">
         <mat-icon>add</mat-icon>
       </button>
-      <button mat-mini-fab color="warn">
+      <button mat-mini-fab
+              color="warn"
+              (click)="removeCol()">
         <mat-icon>remove</mat-icon>
       </button>
     </div>
