@@ -41,4 +41,12 @@ export class VisualizerComponent implements OnInit {
   public removeCol(): void {
     this.matrix.length--;
   }
+
+  public addRow(): void {
+    this.matrix.height++;
+  }
+
+  public removeRow(): void {
+    this.matrix.height--;
+  }
 }
