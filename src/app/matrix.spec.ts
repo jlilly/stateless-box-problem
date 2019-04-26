@@ -106,16 +106,16 @@ describe('Matrix: A Model', () => {
     const heightTests = [{
       description: '1',
       height: 1,
-      arr: [[{checked: true}, {checked: true}]]
+      arr: [[{checked: false}, {checked: true}]]
     }, {
       description: '2',
       height: 2,
-      arr: [[{checked: true}, {checked: true}],
+      arr: [[{checked: false}, {checked: true}],
             [{checked: true}, {checked: true}]]
     }, {
       description: '3',
       height: 3,
-      arr: [[{checked: true}, {checked: true}],
+      arr: [[{checked: false}, {checked: true}],
             [{checked: true}, {checked: true}],
             [{checked: false}, {checked: false}]]
     }];
@@ -127,14 +127,14 @@ describe('Matrix: A Model', () => {
     }, {
       description: '-1',
       height: -1,
-      arr: [[{checked: true}, {checked: true}],
+      arr: [[{checked: false}, {checked: true}],
             [{checked: true}, {checked: true}]]
     }];
 
     describe('set()', () => {
       beforeEach(() => {
         (matrix as any).data = [
-          [{checked: true}, {checked: true}],
+          [{checked: false}, {checked: true}],
           [{checked: true}, {checked: true}]
         ];
       });
@@ -163,17 +163,17 @@ describe('Matrix: A Model', () => {
     const lengthTests = [{
       description: '1',
       length: 1,
-      arr: [[{checked: true}],
+      arr: [[{checked: false}],
             [{checked: true}]]
     }, {
       description: '2',
       length: 2,
-      arr: [[{checked: true}, {checked: true}],
+      arr: [[{checked: false}, {checked: true}],
             [{checked: true}, {checked: true}]]
     }, {
       description: '3',
       length: 3,
-      arr: [[{checked: true}, {checked: true}, {checked: false}],
+      arr: [[{checked: false}, {checked: true}, {checked: false}],
             [{checked: true}, {checked: true}, {checked: false}]]
     }];
 
@@ -184,14 +184,14 @@ describe('Matrix: A Model', () => {
     }, {
       description: '-1',
       length: -1,
-      arr: [[{checked: true}, {checked: true}],
+      arr: [[{checked: false}, {checked: true}],
             [{checked: true}, {checked: true}]]
     }];
 
     describe('set()', () => {
       beforeEach(() => {
         (matrix as any).data = [
-          [{checked: true}, {checked: true}],
+          [{checked: false}, {checked: true}],
           [{checked: true}, {checked: true}]
         ];
       });
