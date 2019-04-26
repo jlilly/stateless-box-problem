@@ -49,4 +49,25 @@ export class VisualizerComponent implements OnInit {
   public removeRow(): void {
     this.matrix.height--;
   }
+
+  public checkAll(): void {
+    for ( const row of this.matrix.ngModelData ) {
+      for ( const col of row ) {
+        col.checked = true;
+      }
+    }
+  }
+
+
+  public clearAll(): void {
+    for ( const row of this.matrix.ngModelData ) {
+      for ( const col of row ) {
+        col.checked = false;
+      }
+    }
+  }
+
+  public debug(): void {
+    console.log(JSON.stringify(this.matrix.arr));
+  }
 }
