@@ -25,6 +25,9 @@ export class VisualizerComponent implements OnInit {
       [{checked: true}, {checked: true}, {checked: true}, {checked: false}, {checked: false}],
       [{checked: true}, {checked: true}, {checked: true}, {checked: true}, {checked: true}],
     ];
+
+    this.matrix.height = 24;
+    this.matrix.length = 24;
   }
 
   public calcBoxEdge(): number {
