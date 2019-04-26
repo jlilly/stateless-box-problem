@@ -71,22 +71,6 @@ describe('LargestMatrixService', () => {
   // TODO: this may become a large set of tests, move into own file?
   describe('largestMatrix()', () => {
     [{
-      description: 'Gracefully handles bad input: undefined',
-      arr: undefined,
-      expectedResult: 0
-    }, {
-      description: 'Gracefully handles bad input: null',
-      arr: null,
-      expectedResult: 0
-    }, {
-      description: 'Gracefully handles bad input: []',
-      arr: [],
-      expectedResult: 0
-    }, {
-      description: 'Gracefully handles bad input: [[]]',
-      arr: [[]],
-      expectedResult: 0
-    }, {
       description: 'Zero Case',
       arr: [[0, 0, 0],
             [0, 0, 0],

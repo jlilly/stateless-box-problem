@@ -15,18 +15,8 @@ export class LargestMatrixService {
    * @returns The side length for the largest square of 1s
    */
   public largestMatrix(arr: number[][]): number {
-    if ( isNullOrUndefined(arr) ||  arr.length === 0 ) {
-      return 0;
-    }
-    if ( arr[0].length === 0 ) {
-      return 0;
-    }
-
-    // TODO: could add guard to check for in bounds input
-    //       (eg is anything not 0 or 1?)
-
-    // TODO: could add check to see if rows are of uneven length
-    //       and trim to smallest
+    // Since we're getting data from the Matrix, we can skip the method gaurds
+    // Normally this would be in the model, but I'll leave it as a service
 
     // Start our search reasonably
     const maxPossibleLength = Math.floor( Math.sqrt( this.sum(arr) ) );
