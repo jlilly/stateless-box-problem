@@ -88,10 +88,6 @@ export class Matrix {
     return this.data.length;
   }
 
-  public randomize(): void {
-
-  }
-
   private isEmpty( a: any[][] ): boolean {
     return isNullOrUndefined(a) || a.length === 0 || a[0].length === 0;
   }

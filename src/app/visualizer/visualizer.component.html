@@ -1,14 +1,8 @@
 <div class="column-container">
-  <div class="header">
-    <h1>The Biggest Square in There</h1>
-    <h2>{{calcBoxEdge()}} x {{calcBoxEdge()}}</h2>
-  </div>
+  <h1 class="mat-display-1">The Biggest Square in There</h1>
+  <h2 class="mat-display-2">{{calcBoxEdge()}} x {{calcBoxEdge()}}</h2>
   <div class="body">
     <div class="vertical-buttons">
-      <button mat-mini-fab
-              (click)="matrix.randomize()">
-        <mat-icon>shuffle</mat-icon>
-      </button>
       <button mat-mini-fab
               color="primary"
               (click)="checkAll()">
