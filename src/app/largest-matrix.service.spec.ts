@@ -1,4 +1,5 @@
 import { LargestMatrixService } from './largest-matrix.service';
+import { shouldBeEight } from './should-be-eight.test-case';
 
 describe('LargestMatrixService', () => {
   let service: LargestMatrixService;
@@ -340,5 +341,12 @@ describe('LargestMatrixService', () => {
         expect(result).toEqual(testCase.expectedResult);
       });
     });
+
+    it('Should be Eight', () => {
+      const result = service.largestMatrix(shouldBeEight);
+
+      expect(result).toEqual(8);
+    });
+
   });
 });

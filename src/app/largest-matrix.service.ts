@@ -73,7 +73,7 @@ export class LargestMatrixService {
             count++;
           }
 
-          if ( count === largest ) {
+          if ( count >= largest ) {
             return largest;
           }
         }
