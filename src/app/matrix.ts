@@ -42,7 +42,7 @@ export class Matrix {
     if ( l < length ) {
       // remove
       for ( let row of this.data ) {
-        row = row.splice(l - 1, length - l);
+        row = row.splice(l, length - l);
       }
       return;
     }
@@ -72,7 +72,7 @@ export class Matrix {
     }
     if ( h < height ) {
       // remove
-      this.data.splice(h - 1, height - h);
+      this.data.splice(h, height - h);
       return;
     }
     // add
