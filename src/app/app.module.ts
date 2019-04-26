@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LargestMatrixService } from './largest-matrix.service';
@@ -18,7 +18,9 @@ import { VisualizerComponent } from './visualizer/visualizer.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatCheckboxModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [ LargestMatrixService ],
   bootstrap: [ AppComponent ]
