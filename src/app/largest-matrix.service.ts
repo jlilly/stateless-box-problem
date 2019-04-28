@@ -140,7 +140,7 @@ export class LargestMatrixService {
 
     // Do it again
     for ( const link of links ) {
-      if ( this.isBox(chains, row + 1, link, largest, count, bounds) ) {
+      if ( this.isBox(chains, row + 1, link, largest, count, { ...bounds }) ) {
         return true;
       }
     }
