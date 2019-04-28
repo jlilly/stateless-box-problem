@@ -38,32 +38,7 @@ export class LargestMatrixService {
 
       for ( let i = 0; i < chains.length - largest + 1; ++i ) {
         for ( const chain of chains[i] ) {
-          let count = 1;
-          let leftBound = chain.index;
-          let rightBound = chain.index + chain.length;
-
-          for ( let o = i + 1; o < chains.length; ++o ) {
-            const link = chains[o].find(
-              c => c.index <= rightBound - largest
-              && c.index + c.length >= leftBound + largest
-            );
-
-            if ( isUndefined(link) ) {
-              break;
-            }
-
-            if ( link.index > leftBound ) {
-              leftBound = link.index;
-            }
-
-            if ( link.index + link.length < rightBound ) {
-              rightBound = link.index + link.length;
-            }
-
-            count++;
-          }
-
-          if ( count >= largest ) {
+          if ( this.isBox(chains, i, chain, largest) ) {
             return largest;
           }
         }
@@ -71,6 +46,45 @@ export class LargestMatrixService {
     }
 
     return 1;
+  }
+
+  private isBox(
+    chains: { index: number, length: number }[][],
+    row: number,
+    chain: { index: number, length: number },
+    largest: number,
+    count: number = 1
+  ): boolean {
+    let leftBound = chain.index;
+    let rightBound = chain.index + chain.length;
+
+    for ( let o = row + 1; o < chains.length; ++o ) {
+      // This forces us to only consider the left branch
+      const link = chains[o].find(
+        c => c.index <= rightBound - largest
+        && c.index + c.length >= leftBound + largest
+      );
+
+      if ( isUndefined(link) ) {
+        return false;
+      }
+
+      if ( link.index > leftBound ) {
+        leftBound = link.index;
+      }
+
+      if ( link.index + link.length < rightBound ) {
+        rightBound = link.index + link.length;
+      }
+
+      count++;
+
+      if ( count === largest ) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
