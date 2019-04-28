@@ -105,48 +105,37 @@ export class LargestMatrixService {
     chain: Segment,
     largest: number,
     count: number = 1,
-    bounds: { left: number, right: number } = { left: chain.index, right: chain.index + chain.length }
+    leftBound: number = chain.index,
+    rightBound: number = chain.index + chain.length
   ): boolean {
-    if ( row + 1 === chains.length ) {
-      return false;
-    }
-
-    if ( chain.index > bounds.left ) {
-      bounds.left = chain.index;
-    }
-
-    if ( chain.index + chain.length < bounds.right ) {
-      bounds.right = chain.index + chain.length;
-    }
-
-    if ( bounds.left + bounds.right < largest ) {
-      return false;
-    }
-
-    const links = chains[row + 1].filter(
-      c => c.index <= bounds.right - largest
-      && c.index + c.length >= bounds.left + largest
-    );
-
-    if ( links.length === 0 ) {
-      return false;
-    }
-
-    count++;
-
     if ( count === largest ) {
       return true;
     }
 
-    // Do it again
+    if ( row + 1 === chains.length ) {
+      return false;
+    }
+
+    if ( chain.index > leftBound ) {
+      leftBound = chain.index;
+    }
+
+    if ( chain.index + chain.length < rightBound ) {
+      rightBound = chain.index + chain.length;
+    }
+
+    const links = chains[row + 1].filter(
+      c => c.index <= rightBound - largest
+      && c.index + c.length >= leftBound + largest
+    );
+
     for ( const link of links ) {
-      if ( this.isBox(chains, row + 1, link, largest, count, { ...bounds }) ) {
+      if ( this.isBox(chains, row + 1, link, largest, count + 1, leftBound, rightBound) ) {
         return true;
       }
     }
 
     return false;
   }
-
 
 }
