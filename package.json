@@ -8,7 +8,7 @@
     "test": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href=\"/stateless-box-problem\"; npx angular-cli-ghpages --dir=dist/box-problem"
+    "deploy": "ng build --prod --base-href=\"/stateless-box-problem/\"; npx angular-cli-ghpages --dir=dist/box-problem"
   },
   "private": true,
   "dependencies": {
