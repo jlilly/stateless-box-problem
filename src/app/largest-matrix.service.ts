@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { isNullOrUndefined, isNull, isUndefined } from 'util';
+import { isNull, isUndefined } from 'util';
+
+interface Segment {
+  index: number;
+  length: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -49,9 +54,9 @@ export class LargestMatrixService {
   }
 
   private isBox(
-    chains: { index: number, length: number }[][],
+    chains: Segment[][],
     row: number,
-    chain: { index: number, length: number },
+    chain: Segment,
     largest: number,
     count: number = 1
   ): boolean {
@@ -106,7 +111,7 @@ export class LargestMatrixService {
    * @param row Row from the input array
    * @returns An array containing the index and lengths of each chain
    */
-  private analyseRow(row: number[]): { index: number, length: number }[] {
+  private analyseRow(row: number[]): Segment[] {
     const chainData = [];
     let start = 0;
     let len = 0;
