@@ -53,45 +53,6 @@ export class LargestMatrixService {
     return 1;
   }
 
-  private isBox(
-    chains: Segment[][],
-    row: number,
-    chain: Segment,
-    largest: number,
-    count: number = 1
-  ): boolean {
-    let leftBound = chain.index;
-    let rightBound = chain.index + chain.length;
-
-    for ( let o = row + 1; o < chains.length; ++o ) {
-      // This forces us to only consider the left branch
-      const link = chains[o].find(
-        c => c.index <= rightBound - largest
-        && c.index + c.length >= leftBound + largest
-      );
-
-      if ( isUndefined(link) ) {
-        return false;
-      }
-
-      if ( link.index > leftBound ) {
-        leftBound = link.index;
-      }
-
-      if ( link.index + link.length < rightBound ) {
-        rightBound = link.index + link.length;
-      }
-
-      count++;
-
-      if ( count === largest ) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
   /**
    * Sum up all the 1s.
    * Useful for finding maximum possible square.
@@ -137,4 +98,55 @@ export class LargestMatrixService {
 
     return chainData;
   }
+
+  private isBox(
+    chains: Segment[][],
+    row: number,
+    chain: Segment,
+    largest: number,
+    count: number = 1,
+    bounds: { left: number, right: number } = { left: chain.index, right: chain.index + chain.length }
+  ): boolean {
+    if ( row + 1 === chains.length ) {
+      return false;
+    }
+
+    if ( chain.index > bounds.left ) {
+      bounds.left = chain.index;
+    }
+
+    if ( chain.index + chain.length < bounds.right ) {
+      bounds.right = chain.index + chain.length;
+    }
+
+    if ( bounds.left + bounds.right < largest ) {
+      return false;
+    }
+
+    const links = chains[row + 1].filter(
+      c => c.index <= bounds.right - largest
+      && c.index + c.length >= bounds.left + largest
+    );
+
+    if ( links.length === 0 ) {
+      return false;
+    }
+
+    count++;
+
+    if ( count === largest ) {
+      return true;
+    }
+
+    // Do it again
+    for ( const link of links ) {
+      if ( this.isBox(chains, row + 1, link, largest, count, bounds) ) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+
 }
